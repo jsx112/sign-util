@@ -13,7 +13,7 @@ import java.util.TreeMap;
 *
 * Java 加密解密之消息摘要算法
 * @author jiasx
-* @create 2017/10/18 12:20
+* 2017/10/18 12:20
 **/
 public class HmacSha256Util {
 
@@ -58,7 +58,7 @@ public class HmacSha256Util {
      * 根据参数和密钥，生成内容摘要
      * @param key 密钥
      * @param map 参数
-     * @return
+     * @return String
      */
     public static String digest(String key, Map<String, ?> map) {
         StringBuilder s = new StringBuilder();

@@ -9,12 +9,15 @@ import java.util.Random;
 /**
 * 对消息内容做摘要处理
 * @author jiasx
-* @create 2017/10/18 15:09
+* 2017/10/18 15:09
 **/
 public class Md5Util {
     /** 
      * 生成含有密钥的md5的密码
-     */  
+     * @param content
+     * @param keySecret
+     * @return
+     */
     public static String generateMd5(String content,String keySecret) {
         content = md5Hex(content + keySecret);
         char[] cs = new char[48];  
@@ -29,7 +32,11 @@ public class Md5Util {
   
     /** 
      * 校验密码是否正确 
-     */  
+     * @param content
+     * @param md5
+     * @param keySecret
+     * @return
+     */
     public static boolean verify(String content, String md5,String keySecret) {
         char[] cs1 = new char[32];  //md5摘要
         char[] cs2 = new char[16];  //密钥
@@ -44,7 +51,9 @@ public class Md5Util {
   
     /** 
      * 获取十六进制字符串形式的MD5摘要 
-     */  
+     * @param src
+     * @return
+     */
     public static String md5Hex(String src) {  
         try {  
             MessageDigest md5 = MessageDigest.getInstance("MD5");  
@@ -58,7 +67,8 @@ public class Md5Util {
 
     /**
      * 生成md5密钥
-     **/
+     * @return
+     */
     public static String generateKeySecret(){
         Random secureRandom = new SecureRandom();
         byte[] salt = new byte[16];
